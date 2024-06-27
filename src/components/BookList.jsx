@@ -6,7 +6,7 @@ const BookList = (props) => (
   <Container>
     <Row>
       {props.books.map((book) => (
-        <SingleBook key={book.asin} img={book.img} title={book.title} />
+        <SingleBook key={book.asin} book={book} />
       ))}
     </Row>
   </Container>

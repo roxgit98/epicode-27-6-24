@@ -2,6 +2,7 @@ import { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Badge from "react-bootstrap/Badge";
+import CommentArea from "./CommentArea";
 
 //  const SingleBook = (props) => (
 //    <Col xxl={4}>
@@ -31,11 +32,17 @@ class SingleBook extends Component {
   render() {
     return (
       <Col xxl={4}>
-        <Card onClick={this.toggleSelected}>
-          <Card.Img variant="top" src={this.props.img} className="img-fluid" />
+        <Card>
+          <Card.Img
+            onClick={this.toggleSelected}
+            variant="top"
+            src={this.props.book.img}
+            className="img-fluid"
+          />
           <Card.Body>
-            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Title>{this.props.book.title}</Card.Title>
             {this.state.selected && <Badge bg="success">Compra ora!</Badge>}
+            {this.state.selected && <CommentArea asin={this.props.book.asin} />}
           </Card.Body>
         </Card>
       </Col>
